@@ -39,13 +39,10 @@ class QuickSort implements Algorithm
 
             do {
                 $j--;
-            } while ($j >= 0 && $array[$j] > $pivot);
+            } while ($j > 0 && $array[$j] > $pivot);
 
             $temp = $array[$i];
-
-            if ($j >= 0) {
-                ArrayHelper::switchValues($array, $i, $j);
-            }
+            ArrayHelper::switchValues($array, $i, $j);
         } while ($j > $i);
 
         $array[$j] = $array[$i];
