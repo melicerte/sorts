@@ -10,6 +10,8 @@ class AlgorithmFactory
                 return new QuickSort();
             case 'merge':
                 return new MergeSort();
+            case 'merge-poor':
+                return new MergePoorSort();
             case 'bubble':
                 return new BubbleSort();
             case 'insertion':

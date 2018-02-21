@@ -11,8 +11,12 @@ For educational use.
 * Selection sort : `selection`
 * Insertion sort : `insertion`
 * Bubble sort : `bubble`
+* Merge poor sort : `merge-poor`
 * Merge sort : `merge`
 * QuickSort : `quick`
+
+**Note** : Merge poor sort is a bad implementation found on internet.
+Important to see that bad implementation leads to poor results.
 
 ## Requirements
 * Docker

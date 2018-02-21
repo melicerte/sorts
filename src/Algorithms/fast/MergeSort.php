@@ -1,4 +1,5 @@
 <?php
+
 namespace Melicerte\Sorts;
 
 class MergeSort implements Algorithm
@@ -8,47 +9,37 @@ class MergeSort implements Algorithm
         return 'merge sort';
     }
 
-    public function sort(array $array): array
+    function sort(array $array): array
     {
-        $nb = count($array);
+        // Only process if we're not down to one piece of data
+        if (\count($array) > 1) {
 
-        if ($nb <= 1) {
-            return $array;
-        }
-
-        // Split our input array into two halves
-        $half = (int)($nb / 2);
-        $leftFrag = array_slice($array, 0, $half);
-        $rightFrag = array_slice($array, $half);
-
-        // RECURSION
-        // Split the two halves into their respective halves...
-        $leftFrag = $this->sort($leftFrag);
-        $rightFrag = $this->sort($rightFrag);
-
-        return $this->merge($leftFrag, $rightFrag);
-
-    }
-
-    private function merge(array &$lF, array &$rF): array
-    {
-        $result = array();
-
-        // While both arrays have something in them
-        while (count($lF) > 0 && count($rF) > 0) {
-            if ($lF[0] <= $rF[0]) {
-                array_push($result, array_shift($lF));
-            } else {
-                array_push($result, array_shift($rF));
+            // Find out the middle of the current data set and split it there to obtain to halfs
+            $array_middle = \round(\count($array) / 2, 0, PHP_ROUND_HALF_DOWN);
+            // and now for some recursive magic
+            $array_part1 = $this->sort(\array_slice($array, 0, $array_middle));
+            $array_part2 = $this->sort(\array_slice($array, $array_middle, \count($array)));
+            // Setup counters so we can remember which piece of data in each half we're looking at
+            $counter1 = $counter2 = 0;
+            // iterate over all pieces of the currently processed array, compare size & reassemble
+            $nb = \count($array);
+            for ($i = 0; $i < $nb; $i++) {
+                // if we're done processing one half, take the rest from the 2nd half
+                if ($counter1 === \count($array_part1)) {
+                    $array[$i] = $array_part2[$counter2];
+                    ++$counter2;
+                    // if we're done with the 2nd half as well or as long as pieces in the first half are still smaller than the 2nd half
+                } elseif (($counter2 === \count($array_part2)) || ($array_part1[$counter1] < $array_part2[$counter2])) {
+                    $array[$i] = $array_part1[$counter1];
+                    ++$counter1;
+                } else {
+                    $array[$i] = $array_part2[$counter2];
+                    ++$counter2;
+                }
             }
         }
 
-        // did not see this in the pseudo code,
-        // but it became necessary as one of the arrays
-        // can become empty before the other
-        array_splice($result, count($result), 0, $lF);
-        array_splice($result, count($result), 0, $rF);
-
-        return $result;
+        return $array;
     }
+
 }
