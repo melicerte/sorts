@@ -1,7 +1,8 @@
 <?php
 
-require_once __DIR__ . '/../Algorithm.php';
-require_once __DIR__ . '/../../lib/ArrayHelper.php';
+namespace Melicerte\Sorts;
+
+use Melicerte\Sorts\Helper\ArrayHelper;
 
 class SelectionSort implements Algorithm
 {

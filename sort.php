@@ -1,7 +1,10 @@
 <?php
-require_once 'algorithms/AlgorithmFactory.php';
-require_once 'lib/ArrayHelper.php';
-require_once 'lib/Timer.php';
+
+use Melicerte\Sorts\AlgorithmFactory;
+use Melicerte\Sorts\Helper\ArrayHelper;
+use Melicerte\Sorts\Helper\Timer;
+
+require_once './vendor/autoload.php';
 
 // Read parameters
 $algorithmName = $argv[1];

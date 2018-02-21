@@ -1,4 +1,5 @@
 <?php
+namespace Melicerte\Sorts;
 
 interface Algorithm {
     public function sort(array $array): array;

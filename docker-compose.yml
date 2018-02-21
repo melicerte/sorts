@@ -3,5 +3,6 @@ version: '2'
 services:
   php:
     image: phpdockerio/php72-fpm
+    working_dir: /home
     volumes:
-      - ./src:/home
+      - .:/home

@@ -1,11 +1,5 @@
 <?php
-require_once 'Algorithm.php';
-require_once 'slow/SelectionSort.php';
-require_once 'slow/InsertionSort.php';
-require_once 'slow/BubbleSort.php';
-require_once 'fast/MergeSort.php';
-require_once 'fast/QuickSort.php';
-require_once 'native/PhpNativeSort.php';
+namespace Melicerte\Sorts;
 
 class AlgorithmFactory
 {

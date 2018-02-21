@@ -18,6 +18,9 @@ For educational use.
 * Docker
 * docker-compose
 
+## Prepare
+`composer dumpautoload -o`
+
 ## Launch
 Start container :
 
@@ -25,13 +28,13 @@ Start container :
 
 Execute sort algorithm :
 
-`docker-compose exec php php /home/sort.php [algorithm name] [size of array to generate]`
+`docker-compose exec php php sort.php [algorithm name] [size of array to generate]`
 
 Example to launch the Quick sort algorithm on an array of 1000 integers :
 
-`docker-compose exec php php /home/sort.php quick 1000`
+`docker-compose exec php php sort.php quick 1000`
 
 ## Display arrays
 If you want to see the initial array, and the sorted one, just add "display" at the end of the command :
 
-`docker-compose exec php php /home/sort.php quick 100 display`
+`docker-compose exec php php sort.php quick 100 display`

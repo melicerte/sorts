@@ -1,5 +1,5 @@
 <?php
-
+namespace Melicerte\Sorts\Helper;
 
 class ArrayHelper
 {
