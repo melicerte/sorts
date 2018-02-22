@@ -16,10 +16,18 @@ class BubbleSort implements Algorithm
         $nb = count($array);
 
         for ($i = $nb - 1; $i >= 1; $i--) {
+            $isSorted = true;
+
             for ($j = 0;$j < $i;$j++) {
                 if ($array[$j + 1] < $array[$j]) {
                     ArrayHelper::switchValues($array, $j + 1, $j);
+                    $isSorted = false;
                 }
+            }
+
+            // Optimize : if no values switched, this is the end
+            if ($isSorted) {
+                break;
             }
         }
 

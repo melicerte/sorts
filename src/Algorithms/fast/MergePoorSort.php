@@ -1,6 +1,11 @@
 <?php
 namespace Melicerte\Sorts;
 
+/**
+ * Poor implementation of merge sort found here : https://stackoverflow.com/a/25032866/2046293
+ * Class MergePoorSort
+ * @package Melicerte\Sorts
+ */
 class MergePoorSort implements Algorithm
 {
     public function getName(): string
