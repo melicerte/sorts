@@ -48,11 +48,13 @@ class MergePoorSort implements Algorithm
             }
         }
 
+        $nb_result = count($result);
+
         // did not see this in the pseudo code,
         // but it became necessary as one of the arrays
         // can become empty before the other
-        array_splice($result, count($result), 0, $lF);
-        array_splice($result, count($result), 0, $rF);
+        array_splice($result, $nb_result, 0, $lF);
+        array_splice($result, $nb_result, 0, $rF);
 
         return $result;
     }
